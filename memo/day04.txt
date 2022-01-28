@@ -1,0 +1,143 @@
+프로그래밍!!! programming
+
+pro + Gram
+미리 + 작성된것
+
+사전적 의미는 '진행 계획'이나 '순서'
+
+컴퓨터 프로그램이란
+'컴퓨터가 무엇을 해야할 지 미리 작성한 계획
+
+카카오톡 프로그램
+1.친구 지정
+2.메세지 입력
+3.전송 버튼 클릭
+
+Python의 특징
+1. 문법이 간단하다.
+2. 매우 다양한 분야에 활용 가능하다.
+3. 대부분의 운영체제에서 사용 가능하다.
+4. 비전공자도 (다른언어에 비해서는)쉽게 배울수 있다.
+*느리다 (C언어보다 100~300배)
+
+파이썬에서 어떤 값을 만들어 내는 간단한 코드를 표현식(expression)이라고 부른다.
+273
+1+2+3
+'hello world'
+이러한 표현식들이 모여 코드가 된다.
+
+========================================
+한 주간의 복습
+
+
+기본 자료형
+	문자열 String
+	숫자 int
+	논리 boolean
+	
+	문자열은[index] 사용이 가능하다 slicing도 사용 가능하다
+
+조건문
+	bool & if
+
+	bool
+		조건에 따라 True 또는 False를 반환
+	if
+		조건에 따라 특정 코드를 실행하거나 특정 코드를 
+		실행하지 않게 만들고 싶을때 사용
+		코드의 실행 흐름을 변경시키는 것을 조건 분기 라고 부른다.
+
+
+=========================================
+import datetime #날짜/시간과 관련된 기능을 가져온다.
+
+now = datetime.datetime.now()
+now.year		#그냥 사용해도 되지만 여러 방법으로 사용 가능하다.
+now.mont
+now.hour
+
+
+=========================================
+리스트와 반복문
+li = [1,2,3,4,5]
+	for i in range(10):	#range()를 이용한 반복문 (10미만까지)
+			  (0,10,2) 0부터 10 미만까지 2씩 증가
+	for i in li:		#List를 이용한 반복문
+
+
+딕셔너리와 반복문
+	for i in dict1:
+    		print(i, dict1[i])
+	#i는 key값이 나오고 dict1[i]로 해당 키값에 묶인 Value값이 나온다.
+
+=========================================
+for : 반복횟수를 정확히 알고 있을 때 주로 사용
+while : 반복횟수를 정확히 알수 없을 때 주로 사용
+
+break/ continue
+
+	break 반복문 종료
+
+	continue 다음 반복으로 넘어감
+
+=========================================
+enumerate() 메소드
+
+student = ["진구", "철수", "미애", "형구", "진수"]
+
+	for i in range(5):			#일반출력
+    		print(f"{i}번 {student[i]}")
+
+	for i, name in enumerate(student):	#enumerate()사용
+    		print(f"{i}번 {name}")
+
+items() 메소드
+	딕셔너리는 items() 함수를 사용하여 key와 value 값을 한번에 가져올 수 있다
+
+	dict1 = {
+    		'홍길동' : 185,
+    		'이몽룡' : 189,
+  		'성춘향' : 168
+	}
+	for i in dict1:
+   		print(f"{i}의 키는 {dict1[i]}입니다.") #일반 출력
+
+	for name, height in dict1.items():
+    		print(f"{name}의 키는 {height}입니다.") #items()사용
+
+
+#리스트 내포 list comprehensions
+
+	array = []		#일반
+	for i in range(0, 20, 2):
+    		array.append(i)
+
+	
+	array = [i for i in range(0,20,2)]  #list comprehensions사용
+
+	
+	array = ['사과', '체리', '바나나', '과자']  #list comprehensions사용
+	output = [i for i in array if i !='과자'] #조건을 걸수도 있다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
