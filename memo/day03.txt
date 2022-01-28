@@ -1,0 +1,132 @@
+복습
+
+Collection : 많은 데이터(elements)를 저장하고 관리한다.
+	   (자바와 동일하게 여러 데이터를 관리하는 Collection형태는 참조형인거 
+	  같다 list2 = list1 했을때 같은 주소값을 가지며 수정을하면 둘 다 수정된다.)
+	  *list2 = list1.copy()  
+	  #copy()함수를 사용하면 같은 값을 가진 다른 주소를 얻어온다.
+
+리스트 list		튜플 tuple		딕셔너리 dict	셋 set
+[]		()		{}		{}
+mutable		immutable	mutable		mutable
+index/slicing	index/slicing	Nope		Nope
+		(1,)		{key:value}	중복제거
+
+List
+	list1 = [1,2,3,4,5]
+	list2 = [1,2,'하나','둘',True] #에러는 안나지만 오류의 여지가 있다.
+
+	list1[0] 		#indexing
+	list1[2:4]		#slicing [시작:끝(미만)]
+			#mutable
+	list1[0] = 9 	#수정
+	list1*3		#연산
+	list1.append(8)	#마지막에 추가
+	list1.insert(index, value) #특정 index에 값을 추가
+	del list1		#삭제
+
+Tuple
+	t1 =("대한", "민국")
+	t2 =(1,)	#하나의 요소만 가질때는 ,를 사용한다.
+	t1[0]	#indexing
+	t1[0:2]	#slicing
+	#immutable 수정/삽입/삭제가 불가능
+
+Dict
+	dict1 ={
+		"key" : "value"
+	}
+	
+	dict1["key"] #key값으로 value를 불러온다
+				#mutable
+	dict1["newKey"] = "value"	#새로운 key값으로 추가
+	del dict["key"]		#key값으로 삭제
+	#순서가 없어서 index 사용은 불가 key값을 사용
+
+Set
+	set = {1,1,2,3,3}
+	#순서가 없어서 index 사용 불가 list로 변환하여 접근
+
+===========================================
+조건문
+1. if	#파이썬은 switch 없다
+
+
+	if 조건식1:		#조건식은 True or False의 결과가 나온다
+		True일 경우 실행
+	elif 조건식2:
+		조건식1은 False이고 조건식2가 True이면 실행
+	elif ...:
+		...
+	else:		#else는 생략가능
+		모든 조건이 False일 경우 실행
+
+===========================================
+반복문
+1. while
+2. for
+
+While
+	반복문은 작업 수행을 한 번이 아니라 계속해서 수행해야 할 때 사용한다.
+	while 반복 작업을 몇 번 수행할지 확실하지 않을 때 주로 사용한다.
+
+	while 조건문:
+		반복할 코드
+		...
+
+===========================================
+
+for
+	몇 번 반복 시킬지 그 횟수가 명확할 때 주로 사용한다.
+
+	for 변수 in 반복시킬 값들:
+		반복 실행문...
+
+	for i in [1,2,3]:	#리스트
+		print(i)
+
+	for i in "hello":	#문자열
+ 		print(i)
+
+	for i in (1,2,3):	#튜플
+  		print(i)
+
+	for i in range(3):	#range(시작(생략가능), 끝(미만), 스텝(생략가능))
+		print(i)	#3미만까지 -> 0~2 
+
+	for i in range(1,4) 	#1~3까지
+	for i in range(1,4,2)#1~3까지 2번째 마다
+	
+	*set과 dict는 순서와 상관 없이는 사용가능
+
+	for i in {"가위", "바위", "보"}:	#출력결과는 순서를 보장하지 않는다
+  		print(i)
+	person = {
+    		"name" : "에밀리",
+    		"age" : "20"
+	}
+
+	for i in person:	#출력결과는 key값이 나오고 순서 보장안됨
+  		print(i)
+
+	for i in person:	#key값을 받아 value값을 출력하지만 순서 보장 안됨
+  		print(person[i])
+
+	*range()를 가장 많이 쓴다.
+	#파이썬의 for문은 자바의 향상 for문과 비슷한거 같다.
+
+range(start, stop, step)
+	
+	1. 숫자들을 컬렉션으로 만든다
+	2. start를 생략하면 0부터 시작한다.
+	3. stop은 생략할 수 없다.
+	4. step을 생략하면 1씩 증가한다.
+
+
+
+
+
+
+
+
+
