@@ -1,0 +1,193 @@
+Function
+
+함수만들기
+
+수학에서의 함수와 유사
+ex) 딸기(input) -> 믹서기(함수) -> 딸기 쥬스(output)
+
+
+함수의 기본형
+
+def함수명():
+	수행
+-----------------------------------------
+ex)
+def print_3():	#hi를 3번 출력하는 함수
+    print('hi')
+    print('hi')
+    print('hi')
+    
+print_3()		#함수 호출
+
+------------------------------------------
+def print_3(val):	#매개변수 받아서 실행되는 함수 (자료형을 명시안한다?)
+    print(val)
+    print(val)
+    print(val)
+    
+print_3('hi')
+print_3('hello')
+-------------------------------------------
+def print_3(val,n):	#두 개의 매개변수를 받아서 실행
+    for i in range(n):
+        print(val)
+    
+print_3('hello',5)
+
+
+
+가변 매개 변수
+함수를 선언할 때 매개변수와 함수를 호출할 때 매개변수가 같아야만 했다.(적거나 많으면 오류 발생)
+가변 매개 변수는 몇개가 오든 상관하지 않는다.
+매개변수에 *을 붙이면 된다.
+
+def print_n_times(n,*val):
+    for i in range(n):
+        for v in val:
+            print(v)
+        print()
+
+print_n_times(3,'hi', 'hello', 'good morning')
+print_n_times(3,'hi')
+
+
+
+기본 매개변수
+매개변수에 아무것도 넣지 않으면 기본값으로 동작하게하는 기본 매개변수
+기본 매개변수는 항상 뒤에 작성한다!
+def print_n_times(val, n=2):
+    for i in range(n):
+        print(val)
+    
+
+print_n_times('good morning',3)
+print_n_times('hi')
+
+=========================================
+def test(a, b=10, c=100):
+    print(a+b+c)
+
+#기본형태
+test(10,20,30)
+#모든 매개변수 지정
+test(a=10, b=20, c=30)
+#순서를 섞어도 지정해서 상관 없음
+test(c=30, a=10, b=20)
+
+#일부만 지정
+test(10,c=30)
+
+==========================================
+return
+
+def return_test():	#return을 만나면 끝난다.
+    print('A위치입니다.')
+    return
+    print('B위치입니다.')
+    
+return_test()
+
+
+def return_test():
+    return 100 	#100을 반환
+
+return_test()
+
+==============================================
+재귀함수 (권장하지 않음)
+
+def hello():	#무한 반복됨
+    print('hi')
+    return hello()
+
+#사용 예제  팩토리얼 함수 만들기
+#for문
+def facto(n):
+    total = 1
+    for i in range(1,n+1):
+        total *= i
+    return total
+
+print('3!:', facto(4))
+
+#재귀함수
+def facto2(n):
+    if n == 0:
+        return 1
+
+    return n*facto2(n-1)
+
+print(facto2(5))
+
+#개발자들 사이에서는 재귀함수를 절대 사용하지 말자는 의견도 있다.(예쁜 쓰레기)
+
+=============================================
+튜플과 함수
+튜플은 함수의 리턴에 많이 사용된다. 함수의 리턴에 튜플을 사용하게 되면 여러개의 값을
+리턴하고 할당 할 수 있기 때문이다.
+
+def test():
+    return(10,20) #튜플의 소괄호는 생략 가능하다.
+
+a, b = test()
+
+print(a)
+print(b)
+
+=============================================
+
+def add(a,b): #매개변수 parametter
+    return a+b
+a=3
+b=4	#함수로 들어가는 실제 값은 인수 arguments
+c= add(a,b)
+print(c)
+
+#인수와 매개변수
+#함수와 메소드 - 클래스안에서 만들면 메소드
+#객체와 인스턴스
+
+======================================
+함수의 종류
+#input  O / output  O
+#input  X / output  O
+#input  O / output  X
+#input  X / output  X
+
+==============================
+#함수의 결과는 언제나 하나이다.(여러개는 튜플 하나)
+
+def add_and_mul(a,b):
+    return a+b, a*b
+
+result1, result2 = add_and_mul(3,4)
+print(result1)
+print(result2)
+
+
+==============================
+#람다식
+#람다식은 코드를 줄여주지만 함수처럼 재사용이 용이하지 않다.
+add = lambda a, b: a+b 
+result = add(3,4)
+print(result)
+
+
+def string1():
+    return '안녕'
+
+def string2():
+    print('안녕')
+
+string2()
+print(string1())
+
+s1 = string1()
+s2 = string2()
+
+print(s1)
+print(s2)
+
+
+
+
