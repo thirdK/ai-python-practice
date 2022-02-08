@@ -1,0 +1,72 @@
+예외 처리 (에러 처리, 오류 처리, 버그 처리...)
+
+프로그램 실행 전에 발생하는 오류 - 구문 오류 sysntax error
+프로그램 실행 중에 발생하는 오류 - 런타임 오류 runtime error, 예외 exception
+
+예외 처리는 실행 중에 발생하는 런타임 오류를 처리하는 것이다.
+
+try:
+	명령문
+except:
+	에러났을경우 처리할 명령문
+
+-------------------------------------------------------------------------------
+#숫자만 추출하는 프로그램
+list_all = ['52', '273', '32', '스파이', '103']
+
+list_num = []
+
+for i in list_all:
+    try:
+        float(i)		#float()에 i 넣으면 '스파이'에서 에러가남(int()도 마찬가지)
+        list_num.append(i)
+    except:	#에러나면 except로 오고 pass로 그냥 넘김(try except에서는 continue 사용안함)
+        pass
+print(list_num)
+------------------------------------------------------------------------------
+
+list_all = ['52', '273', '32', '스파이', '103']
+try:
+    print(list_all[5])	#리스트 범위를 벗어나서 에러가뜨는 상황
+except:
+    print('존재하지 않는 인덱스 번호입니다.')
+
+------------------------------------------------------------------------------
+예외처리를 아래와 같이 사용가능하다.
+
+try:
+#예외가 발생할 가능성이 있는 코드
+    
+except:
+#예외 발생했을 때 실행할 코드
+
+else:
+#예외가 발생하지 않앗을 때 실행할 코드
+#else 는 다른 대부분의 언어에서는 없다. else사용 안하고 try문에 코드를 써도된다.
+
+finally:
+#항상 실행 시킬 코드 오류 유무와 상관없이 실행된다!
+
+사용되는 예
+try + except
+try + except + else
+try + except + finally
+try + except + else + finally
+try + finally
+
+==========================================
+def test():
+    print('test()함수의 첫 줄입니다.')
+    try:
+        print('try 구문이 실행')
+        return
+        print('try 구문의 return 아래')
+    except:
+        print('except 구문이 실행')
+    else:
+        print('else구문이 실행')
+    finally:
+        print('finally 구문이 실행되었습니다.')
+    print('test()함수의 마지막 줄입니다.')
+
+test() 함수 실행시 3줄이 출력된다 finally는 매우 강력해서 중간에 return을 만나도 실행된다.
